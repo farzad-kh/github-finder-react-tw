@@ -249,6 +249,18 @@ button:focus-visible {
 
 
 }
+@media screen and (max-width:480px) {
+.mx-repo-name{
+
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 250px;
+  display: block-ruby;
+}
+
+
+}
 
 @media not all and (min-width:1024px) {
 

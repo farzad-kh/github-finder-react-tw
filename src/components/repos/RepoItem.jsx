@@ -22,7 +22,7 @@ const RepoItem = ({ repo, index }) => {
 
             // exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
-            className={`transition-colors  duration-100 mb-4   px-4 card-body sm:!p-7 sm:!py-0   !py-0   rounded-md bg-base-100   
+            className={`transition-colors  duration-100 mb-4  px-4 card-body sm:!p-7 sm:!py-0   !py-0   rounded-md bg-base-100   
             ${theme ? " shadow-slate-300 shadow-md    hover:bg-[#f6f6f6]" : " shadow-slate-950  bg-base-100 shadow-lg  hover:bg-neutral"}`}>
             <div className=' card py-5'>
 
@@ -35,8 +35,8 @@ const RepoItem = ({ repo, index }) => {
                         </div>
                     </div>
                 }
-                <h3 className=" text-sm md:text-xl mb-2 font-semibold flex justify-between flex-wrap py-3 ">
-                    <a href={repo.html_url} className='hover:text-accent '>
+                <h3 className=" text-sm md:text-xl mb-2 font-semibold flex justify-between  py-3 ">
+                    <a href={repo.html_url} className='hover:text-accent mx-repo-name  '>
                         <FaLink className='inline mr-2' />{repo.name}
 
                     </a>
@@ -49,16 +49,16 @@ const RepoItem = ({ repo, index }) => {
                 <div className='flex mt-3 ju  items-center'>
                     <div className='flex-1'>
 
-                        <div className={`mr-2 badge   badge-md sm:badge-lg bg-base-200 border-base-200 ${theme ? " text-neutral  border-info" : "mr-2 badge  text-info  bg-base-200 border-base-200"}`}>
+                        <div className={`mr-2 badge   badge-sm sm:badge-lg bg-base-200 border-base-200 ${theme ? " text-neutral  border-info" : "mr-2 badge  text-info  bg-base-200 border-base-200"}`}>
                             <FaEye className='mr-2 mt-[1px]' />{repo.watchers_count}
                         </div>
-                        <div className={`mr-2 badge   badge-md sm:badge-lg bg-base-200 border-base-200 ${theme ? " text-neutral   border-success" : "mr-2 badge  text-success  bg-base-200 border-base-200"}`}>
+                        <div className={`mr-2 badge   badge-sm sm:badge-lg bg-base-200 border-base-200 ${theme ? " text-neutral   border-success" : "mr-2 badge  text-success  bg-base-200 border-base-200"}`}>
                             <FaStar className='mr-2 mt-[1px]' />{repo.stargazers_count}
                         </div>
-                        <div className={`mr-2 badge   badge-md sm:badge-lg bg-base-200 border-base-200 ${theme ? " text-neutral   border-error " : "mr-2 badge  text-error bg-base-200 border-base-200"}`}>
+                        <div className={`mr-2 badge   badge-sm sm:badge-lg bg-base-200 border-base-200 ${theme ? " text-neutral   border-error " : "mr-2 badge  text-error bg-base-200 border-base-200"}`}>
                             <FaInfo className='mr-2 mt-[1px]' />{repo.open_issues}
                         </div>
-                        <div className={`mr-2 badge   badge-md sm:badge-lg bg-base-200 border-base-200 ${theme ? " text-neutral  bg-base-100 border-warning " : "mr-2 badge  text-warning  bg-base-200 border-base-200"}`}>
+                        <div className={`mr-2 badge   badge-sm sm:badge-lg bg-base-200 border-base-200 ${theme ? " text-neutral  bg-base-100 border-warning " : "mr-2 badge  text-warning  bg-base-200 border-base-200"}`}>
                             <FaUtensils className='mr-2 mt-[1px]' />{repo.forks}
                         </div>
                     </div>

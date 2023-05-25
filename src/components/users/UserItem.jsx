@@ -40,7 +40,5 @@ const UserItem = ({ user: { login, avatar_url,id } ,index}) => {
        </motion.div>
     );
 };
-UserItem.PropTypes = {
-    user: PropTypes.object.isRequired
-}
+
 export default UserItem;

@@ -13,12 +13,13 @@ import styles from "../../src/components/shared/loadingAnime.module.css"
 import stylesLight from "../components/shared/loadingAnimeLight.module.css"
 import { motion } from 'framer-motion';
 import RepoList from '../components/repos/RepoList';
+import { getUser } from '../context/github/GithubActsions';
 const User = () => {
     const ref = useRef()
     const { theme } = useContext(ThemeContext)
     const params = useParams()
     const loginParams = params.login
-    const { state, getUser } = useContext(GithubContext)
+    const { state,dispatch} = useContext(GithubContext)
 
     console.log(state.repos);
 
@@ -26,13 +27,21 @@ const User = () => {
     useEffect(() => {
         console.log(ref.current);
         const getUserSingel = async () => {
-            await getUser(loginParams)
+         
+            dispatch({ type: "LOADING" })
+                dispatch({
+                    type: "GET_USER",
+                    payload: await getUser(loginParams)
+                })
+           
         }
+      setTimeout(()=>{
         getUserSingel()
+      },500)
 
 
 
-    }, [])
+    }, [loginParams])
 
 
 
@@ -122,7 +131,7 @@ const User = () => {
 
                                             <div className=' stat-title  text-xs pb-[2px]'>Locations</div>
 
-                                            <div className='flex items-center text-base stat-value font-bold'>
+                                            <div className=' text-sm sm:text-base  flex items-center  stat-value font-bold'>
                                                 <IoLocationOutline className='mr-2 mt-1' />
 
                                                 {location}</div>
@@ -134,7 +143,7 @@ const User = () => {
                                             <div className=' stat-title  text-xs pb-[2px] '>Blog</div>
                                             <div>
 
-                                                <a className='text-base stat-value font-bold hover:text-accent flex items-center max-w-fit'
+                                                <a className='text-sm sm:text-base   mx-repo-name stat-value font-bold hover:text-accent flex items-center max-w-fit'
                                                     target='_blank'
                                                     rel="noreferrer"
                                                     href={`http://${urlFilter(state.user.blog)}`}>
@@ -150,7 +159,7 @@ const User = () => {
                                             {twitter_username ? <div className=' flex-1 pb-3 px-4   '>
                                                 <div className=' stat-title  text-xs pb-[2px] '>Twitter</div>
                                                 <div>
-                                                    <a className='text-base stat-value font-bold hover:text-accent flex items-center max-w-fit'
+                                                    <a className='text-sm sm:text-base  stat-value font-bold hover:text-accent flex items-center max-w-fit'
                                                         target='_blank'
                                                         rel="noreferrer"
                                                         href={`http://twitter.com/${urlFilter(state.user.twitter_username)}`}>
@@ -162,7 +171,7 @@ const User = () => {
 
                                                 <div className=' stat-title  text-xs pb-[2px]'>Email</div>
 
-                                                <div className='flex items-center text-base stat-value font-bold'>
+                                                <div className='flex items-center text-sm sm:text-base  stat-value font-bold'>
                                                     <MdOutlineEmail className='mr-2 mt-1' />
                                                     {email}</div>
 
@@ -181,7 +190,7 @@ const User = () => {
                         <div className='w-full flex-col    md:flex-row  flex justify-between align-middle gap-5 flex-wrap p-0 md:p-4'>
 
 
-                            <div className=' flex-auto pb-3  pr-7 border-custom !border-base-content !border-opacity-60 '>
+                            <div className=' flex-auto pb-3 pr-0 sm:pr-7 border-custom !border-base-content !border-opacity-60 '>
 
                                 <div className=' stat-title  text-xs pb-[2px]'>Followers</div>
 
@@ -193,7 +202,7 @@ const User = () => {
 
                             </div>
 
-                            <div className=' flex-auto pb-3  pr-7 border-custom !border-base-content !border-opacity-60 '>
+                            <div className=' flex-auto pb-3  pr-0 sm:pr-7  border-custom !border-base-content !border-opacity-60 '>
 
                                 <div className=' stat-title  text-xs pb-[2px]'>Following</div>
 
@@ -204,7 +213,7 @@ const User = () => {
                                 </div>
 
                             </div>
-                            <div className=' flex-auto pb-3 pr-7 border-custom  '>
+                            <div className=' flex-auto pb-3 pr-0 sm:pr-7 border-custom  '>
 
                                 <div className=' stat-title  text-xs pb-[2px]'>Public Repos</div>
 
@@ -216,7 +225,7 @@ const User = () => {
                                 </div>
 
                             </div>
-                            <div className=' flex-auto pb-3  pr-7 border-custom  '>
+                            <div className=' flex-auto pb-3 pr-0 sm:pr-7 border-custom  '>
 
                                 <div className=' stat-title  text-xs pb-[2px]'>Public Gits</div>
 
