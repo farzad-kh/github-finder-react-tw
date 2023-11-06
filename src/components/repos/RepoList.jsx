@@ -75,7 +75,7 @@ const RepoList = ({ login }) => {
                         <>
 
                             <h2 className="text-2xl font-bold card-title mb-6">
-                                Leatest Respositiors
+                            Latest Repositories
                             </h2>
 
                             {state.repos.map((item, i) =>

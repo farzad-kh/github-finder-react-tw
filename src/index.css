@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 :root {}
 
 .hover-color-info:hover a {
@@ -11,7 +9,7 @@
   color: #3ABFF8;
 }
 
-* {}
+
 
 .a {
 
@@ -156,7 +154,12 @@ button:focus-visible {
 
 
 
-
+.active{
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--nf, var(--n)) / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--nf, var(--n)) / var(--tw-bg-opacity));
+}
 
 
 

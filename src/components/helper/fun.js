@@ -74,10 +74,7 @@ const pushUpdate = (timePush) => {
 
 
 }
-// state.repos.length > 0 && state.user.public_repos
-{/* <div className='w-full justify-center items-center flex mb-6'>
-<button className={`relative btn  ${state.loading && "load"}`}  onClick={() => setPerPage(perPage + 10)}>More</button>
-</div> */}
+
 const btnRepo = (state) => {
 
 
